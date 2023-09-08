@@ -38,22 +38,22 @@ def click(x,y,button,pressed):
 
                 move_pos = [
                     left + pos["x"], 
-                    top + pos["y"], 
-                    left + pos["x"] + pos["width"], 
+                    top + pos["y"],
+                    left + pos["x"] + pos["width"],
                     top + pos["y"] + pos["height"]
-                    ]
+                ]
                 
                 print(f"move_pos : {move_pos}")
 
-                pyautogui.moveTo(move_pos[0], move_pos[1])
-                pyautogui.dragTo(move_pos[2], move_pos[3])
+                pyautogui.moveTo(move_pos[0], move_pos[1], 0.1)
+                pyautogui.dragTo(move_pos[2], move_pos[3], 0.1)
                 pyautogui.click()
 
                 pyautogui.press('m')
                 pyautogui.moveTo(left, top)
                 pyautogui.click()
 
-                pyautogui.press('s')
+            pyautogui.press('s')
 
             coord = []
 
@@ -70,6 +70,7 @@ def on_press(key):
     elif key == keyboard.Key.alt_l:
         print("Stopped")
         flag = False
+        coord = []
     elif key == keyboard.Key.enter:
         print("Quit")
         mouseListener.stop()
